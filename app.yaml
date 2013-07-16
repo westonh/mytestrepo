@@ -1,0 +1,9 @@
+application: pd-gae-created-app 
+version: 84
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: helloworld.application
