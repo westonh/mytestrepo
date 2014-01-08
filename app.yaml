@@ -1,4 +1,4 @@
-application: hale-inn-212
+application: westonh-connectedrepo
 version: cr3
 runtime: python27
 api_version: 1
