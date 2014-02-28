@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>sign</servlet-name>
+        <servlet-class>com.google.appengine.demos.guestbook.SignGuestbookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>test</servlet-name>
+        <servlet-class>com.google.appengine.demos.guestbook.GuestbookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign</servlet-name>
+        <url-pattern>/sign</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>guestbook.jsp</welcome-file>
+    </welcome-file-list>
+    <filter>
+  <filter-name>appstats</filter-name>
+   <filter-class>com.google.appengine.tools.appstats.AppstatsFilter</filter-class>
+   <init-param>
+    <param-name>logMessage</param-name>
+    <param-value>Appstats available: /appstats/details?time={ID}</param-value>
+  </init-param>
+</filter>
+
+<filter-mapping>
+  <filter-name>appstats</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+<servlet>
+  <servlet-name>appstats</servlet-name>
+  <servlet-class>com.google.appengine.tools.appstats.AppstatsServlet</servlet-class>
+  <init-param>
+    <param-name>requireAdminAuthentication</param-name>
+    <param-value>false</param-value>
+  </init-param>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>appstats</servlet-name>
+  <url-pattern>/appstats/*</url-pattern>
+</servlet-mapping>
+
+</web-app>
